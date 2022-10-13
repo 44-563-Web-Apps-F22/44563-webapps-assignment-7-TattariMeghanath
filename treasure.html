@@ -33,8 +33,11 @@
             color: rgb(24, 29, 175)ed;
            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 14px;
-
         }
+        button {
+                margin: 25px;
+                width: 400px;
+            }
     </style>
 </head>
 <body>
@@ -44,6 +47,9 @@
     <p style="color:blueviolet"id="chests">Number of chests checked is zero.</p>
     <p style="color:darkmagenta"id="score">Score is unknown</p>
     <p style="color:black"id="help">Help report</p>         
+    <div>
+        <button class="btn btn-success" type="submit" onclick="resetGame()">Reset</button>
+    </div>
     <div class="container" style="height:60%;width:100%;">
     <div class="image-row d-flex justify-content-center">
         <div class="col-sm-2"   ><img src = "closed.jfif"  id="a1" onclick="check(0)" alt="treasureChest"Height="100px"; width="100px"></div>
@@ -138,6 +144,21 @@
     document.getElementById("score").innerText="Score is "+score+"."
     document.getElementById("help").innerText=result
   }
+  function resetGame() {
+                treasureLocation = Math.floor(Math.random() * 24)
+                while(treasureLocation == 12) {
+                    treasureLocation = Math.floor(Math.random() * 24)
+                }
+                chestCount = 0
+                score = 0
+                document.getElementById("chests").innerHTML = "Number of chests checked is zero"
+                document.getElementById("score").innerHTML = "Score is unknown"
+                for(let i = 0; i < 24; i++) {
+                    if(i != 12) {
+                        document.getElementById(ids[i]).src = "closed.jfif"
+                    }
+                }
+            }
   </script>
  </body>
 </html>
