@@ -95,66 +95,49 @@
         if(position==treasureLocation)
       {
         document.getElementById(ids[position]).setAttribute("src","treasure.jpg")
-        score++
-      }
-      else
-      {
-        document.getElementById(ids[position]).setAttribute("src","opened.jpg")
-      }
+        score++}
+      else {
+        document.getElementById(ids[position]).setAttribute("src","opened.jpg") }
       chestCount++
       lastCheck=position
       document.getElementById("chests").innerText="Number of chests is "+chestCount+"."
       document.getElementById("score").innerText="Score is "+score+"."
-
-      lastCheck=position
-    }
-
-    function help()
-  {
+      lastCheck=position}
+    function help() {
     let lastRow=parseInt((lastCheck/5),10)
     let treasureRow=parseInt((treasureLocation/5),10)
     let result=" "
-
     lastCol=lastCheck%5
     treasureCol=treasureLocation%5
-
     console.log(lastCol)
     console.log(lastRow)
     console.log(treasureCol)
     console.log(treasureRow)
-
     if(lastRow==treasureRow&&lastCheck!=treasureLocation)
     {
       if(lastCheck<treasureLocation)
       {
-        result="Right"
-      }
+        result="Right" }
       else
       {
-        result="Left"
-      }
+        result="Left" }
     }
     else if(lastCol==treasureCol&&lastCheck!=treasureLocation)
     {
       if(lastCheck<treasureLocation)
       {
-        result="Bottom"
-      }
+        result="Bottom"}
       else
       {
         result="Up"
-      }
-    }
+      }}
     else
     {
-      result="Sorry, No help available"
-    }
-
+      result="Sorry, No help available"}
     score=score+2
     document.getElementById("score").innerText="Score is "+score+"."
     document.getElementById("help").innerText=result
   }
   </script>
-
  </body>
 </html>
